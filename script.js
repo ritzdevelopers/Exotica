@@ -805,7 +805,7 @@ function section3Animations() {
   const totalSlides = section3Slider.length;
 
   // Check screen size
-  const startValue = window.innerWidth < 768 ? "-25%" : "-10%";
+  const startValue = window.innerWidth < 768 ? "15%" : "-10%";
 
   gsap.to(slider, {
     x: `-${(totalSlides - 1) * 100}%`,
