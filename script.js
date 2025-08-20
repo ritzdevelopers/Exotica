@@ -572,7 +572,6 @@ function hiddenFormAnimation() {
 hiddenFormAnimation();
 
 function section2Animations() {
-
   // Wait for DOM to be fully loaded
   document.addEventListener("DOMContentLoaded", function () {
     // Section 2 scroll animations
@@ -820,7 +819,6 @@ function section3Animations() {
     },
   });
 }
-
 
 function section3TxtAnimations() {
   // Wait for DOM to be fully loaded
@@ -1747,17 +1745,22 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+// Form Filling Logic
+const forms = document.querySelectorAll("form");
+const loader = document.getElementById("loader");
+const popup = document.getElementById("popup");
+const allBtns = document.querySelectorAll(".frm");
+const popupMessage = document.getElementById("popup-message");
+const popupClose = document.getElementById("popup-close");
 
-
-// Form Filling Logic 
-const forms = document.querySelectorAll('form');
-const loader = document.getElementById('loader');
-const popup = document.getElementById('popup');
-const popupMessage = document.getElementById('popup-message');
-const popupClose = document.getElementById('popup-close');
+allBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    openFormModal();
+  });
+});
 
 forms.forEach((form) => {
-  form.addEventListener('submit', async (e) => {
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const currentForm = e.target;
@@ -1769,7 +1772,7 @@ forms.forEach((form) => {
       data[key] = value;
     });
 
-    const checkbox = currentForm.querySelector('#check');
+    const checkbox = currentForm.querySelector("#check");
     // if (!checkbox || !checkbox.checked) {
     //   showPopup("Please accept the Terms & Conditions.");
     //   return;
@@ -1778,19 +1781,22 @@ forms.forEach((form) => {
     showLoader(true);
 
     try {
-      const response = await fetch('https://script.google.com/macros/s/AKfycbyMzyLttOEepL6xxd1UzMPfxQAeHxKCryPSUxo26_Dc2-f0ed2RGpCwl8RKezWEVaU4/exec', {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded"
-        },
-        body: new URLSearchParams(data)
-      });
+      const response = await fetch(
+        "https://script.google.com/macros/s/AKfycbyMzyLttOEepL6xxd1UzMPfxQAeHxKCryPSUxo26_Dc2-f0ed2RGpCwl8RKezWEVaU4/exec",
+        {
+          method: "POST",
+          mode: "no-cors",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: new URLSearchParams(data),
+        }
+      );
 
       currentForm.reset();
       showPopup("✅ Message sent successfully!");
     } catch (error) {
-      console.error('Error!', error.message);
+      console.error("Error!", error.message);
       showPopup("❌ There was an error sending the message.");
     } finally {
       showLoader(false);
@@ -1799,43 +1805,43 @@ forms.forEach((form) => {
 });
 
 function showLoader(show) {
-  loader.classList.toggle('hidden', !show);
+  loader.classList.toggle("hidden", !show);
 }
 
 function showPopup(message) {
   popupMessage.textContent = message;
-  popup.classList.remove('hidden');
+  popup.classList.remove("hidden");
 }
 
-popupClose.addEventListener('click', () => {
-  popup.classList.add('hidden');
+popupClose.addEventListener("click", () => {
+  popup.classList.add("hidden");
 });
 
-const formModal = document.getElementById('form-modal');
-const closeModalBtn = document.getElementById('close-modal');
+const formModal = document.getElementById("form-modal");
+const closeModalBtn = document.getElementById("close-modal");
 
 // Function to open modal
 function openFormModal() {
-  formModal.classList.remove('hidden');
+  formModal.classList.remove("hidden");
 }
 
 // Function to close modal
 function closeFormModal() {
-  formModal.classList.add('hidden');
+  formModal.classList.add("hidden");
 }
 
 // Close modal on button click
-closeModalBtn.addEventListener('click', closeFormModal);
+closeModalBtn.addEventListener("click", closeFormModal);
 
 // Optional: close on ESC key
-document.addEventListener('keydown', (e) => {
+document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") {
     closeFormModal();
   }
 });
 
 // Automatically open the form modal 3 seconds after page load
-window.addEventListener('load', () => {
+window.addEventListener("load", () => {
   setTimeout(() => {
     openFormModal();
   }, 3000); // 3000 ms = 3 seconds

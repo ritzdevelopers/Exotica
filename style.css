@@ -59,3 +59,7 @@ html {
     min-width: 410px;
   }
 }
+#close-modal:hover{
+  background: none !important;
+  box-shadow:  none !important;
+}
