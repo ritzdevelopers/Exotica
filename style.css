@@ -18,6 +18,7 @@
 }
 body {
   font-family: "CustomFont";
+  overflow-x: hidden !important;
 }
 
 /* Smooth scroll behavior */

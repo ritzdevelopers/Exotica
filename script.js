@@ -572,8 +572,6 @@ function hiddenFormAnimation() {
 hiddenFormAnimation();
 
 function section2Animations() {
-  // Register ScrollTrigger plugin
-  gsap.registerPlugin(ScrollTrigger);
 
   // Wait for DOM to be fully loaded
   document.addEventListener("DOMContentLoaded", function () {
@@ -807,18 +805,22 @@ function section3Animations() {
   const slider = document.querySelectorAll(".sliderCard");
   const totalSlides = section3Slider.length;
 
+  // Check screen size
+  const startValue = window.innerWidth < 768 ? "-25%" : "-10%";
+
   gsap.to(slider, {
     x: `-${(totalSlides - 1) * 100}%`,
     scrollTrigger: {
       trigger: ".s3",
       scroller: "body",
-      start: "-10%",
+      start: startValue, // dynamic based on screen size
       end: `+=${totalSlides * 10}%`,
       pin: true,
       scrub: 3,
     },
   });
 }
+
 
 function section3TxtAnimations() {
   // Wait for DOM to be fully loaded
@@ -1808,10 +1810,6 @@ function showPopup(message) {
 popupClose.addEventListener('click', () => {
   popup.classList.add('hidden');
 });
-
-
-
-
 
 const formModal = document.getElementById('form-modal');
 const closeModalBtn = document.getElementById('close-modal');
