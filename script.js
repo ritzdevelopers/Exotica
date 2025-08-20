@@ -313,7 +313,7 @@ function dekstopNavAnimations() {
           // Create a subtle shine effect
           gsap.to(link, {
             keyframes: [
-              { color: "#d97706", duration: 0.2 }, // amber-600
+              { color: "#010101ff", duration: 0.2 }, // amber-600
               { color: "#000000", duration: 0.3 },
             ],
           });
@@ -356,7 +356,7 @@ function dekstopNavAnimations() {
       indicator.style.position = "absolute";
       indicator.style.width = "6px";
       indicator.style.height = "6px";
-      indicator.style.backgroundColor = "#d97706"; // amber-600
+      indicator.style.backgroundColor = "#000000ff"; // amber-600
       indicator.style.borderRadius = "50%";
       indicator.style.bottom = "-10px";
       indicator.style.opacity = "0";
@@ -808,7 +808,7 @@ function section3Animations() {
   const startValue = window.innerWidth < 768 ? "15%" : "-10%";
 
   gsap.to(slider, {
-    x: `-${(totalSlides - 1) * 100}%`,
+    x: `-${(totalSlides - 1) * 95}%`,
     scrollTrigger: {
       trigger: ".s3",
       scroller: "body",
@@ -1382,13 +1382,13 @@ document.addEventListener("DOMContentLoaded", function () {
         scale: 1.03,
         duration: 0.3,
         ease: "power2.out",
-        color: "#2c5282",
+        color: "#000000",
         fontWeight: "500",
       });
 
       const iconContainer = item.querySelector("div");
       gsap.to(iconContainer, {
-        backgroundColor: "#2c5282",
+        backgroundColor: "#000000",
         duration: 0.3,
         ease: "power2.out",
       });
@@ -1846,3 +1846,32 @@ window.addEventListener("load", () => {
     openFormModal();
   }, 3000); // 3000 ms = 3 seconds
 });
+
+function socialLinkHover() {
+  const allSVGS = document.querySelectorAll(".flwLinks svg");
+
+  allSVGS.forEach((svgEle) => {
+    // Mouse enter → scale up
+    svgEle.addEventListener("mouseenter", () => {
+      gsap.to(svgEle, {
+        scale: 1.2,
+        duration: 0.3,
+        ease: "power2.out"
+      });
+    });
+
+    // Mouse leave → scale back
+    svgEle.addEventListener("mouseleave", () => {
+      gsap.to(svgEle, {
+        scale: 1,
+        duration: 0.3,
+        ease: "power2.inOut"
+      });
+    });
+  });
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+  socialLinkHover();
+});
+

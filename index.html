@@ -26,19 +26,19 @@
               class="flex space-x-8 uppercase"
               style="font-family: CustomFont"
             >
-              <li class="hover:text-amber-600 transition-colors cursor-pointer">
+              <li class="hover:text-[#000000] transition-colors cursor-pointer">
                 OVERVIEW
               </li>
-              <li class="hover:text-amber-600 transition-colors cursor-pointer">
+              <li class="hover:text-[#000000] transition-colors cursor-pointer">
                 AMENITIES
               </li>
-              <li class="hover:text-amber-600 transition-colors cursor-pointer">
+              <li class="hover:text-[#000000] transition-colors cursor-pointer">
                 Floor Plan
               </li>
-              <li class="hover:text-amber-600 transition-colors cursor-pointer">
+              <li class="hover:text-[#000000] transition-colors cursor-pointer">
                 LOCATION
               </li>
-              <li class="hover:text-amber-600 transition-colors cursor-pointer">
+              <li class="hover:text-[#000000] transition-colors cursor-pointer">
                 Pricelist
               </li>
             </ul>
@@ -115,19 +115,19 @@
             class="flex flex-col space-y-8 items-center text-xl uppercase"
             style="font-family: CustomFont"
           >
-            <li class="hover:text-amber-600 transition-colors cursor-pointer">
+            <li class="hover:text-[#000000] transition-colors cursor-pointer">
               OVERVIEW
             </li>
-            <li class="hover:text-amber-600 transition-colors cursor-pointer">
+            <li class="hover:text-[#000000] transition-colors cursor-pointer">
               AMENITIES
             </li>
-            <li class="hover:text-amber-600 transition-colors cursor-pointer">
+            <li class="hover:text-[#000000] transition-colors cursor-pointer">
               Floor Plan
             </li>
-            <li class="hover:text-amber-600 transition-colors cursor-pointer">
+            <li class="hover:text-[#000000] transition-colors cursor-pointer">
               LOCATION
             </li>
-            <li class="hover:text-amber-600 transition-colors cursor-pointer">
+            <li class="hover:text-[#000000] transition-colors cursor-pointer">
               Pricelist
             </li>
             <li>
@@ -142,23 +142,33 @@
         </div>
       </div>
     </nav>
-<!-- Loader -->
-<div id="loader" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-40 z-50 hidden">
-  <div class="w-12 h-12 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
-</div>
-
-<!-- Popup -->
-<div id="popup" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 hidden">
-  <div class="bg-white text-center px-6 py-4 rounded shadow-lg max-w-sm w-full">
-    <p id="popup-message" class="text-lg font-medium mb-4"></p>
-    <button
-      id="popup-close"
-      class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800"
+    <!-- Loader -->
+    <div
+      id="loader"
+      class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-40 z-50 hidden"
     >
-      Close
-    </button>
-  </div>
-</div>
+      <div
+        class="w-12 h-12 border-4 border-white border-t-transparent rounded-full animate-spin"
+      ></div>
+    </div>
+
+    <!-- Popup -->
+    <div
+      id="popup"
+      class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 hidden"
+    >
+      <div
+        class="bg-white text-center px-6 py-4 rounded shadow-lg max-w-sm w-full"
+      >
+        <p id="popup-message" class="text-lg font-medium mb-4"></p>
+        <button
+          id="popup-close"
+          class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800"
+        >
+          Close
+        </button>
+      </div>
+    </div>
 
     <!-- Section 1 Is Starting From Here -->
     <section
@@ -235,7 +245,7 @@
                 <input
                   type="checkbox"
                   id="check"
-                  class="w-4 h-4 text-amber-600 rounded focus:ring-amber-500 border-[#AEAEAE]"
+                  class="w-4 h-4 text-[#000000] rounded focus:ring-amber-500 border-[#AEAEAE]"
                 />
                 <p class="text-sm text-gray-600">
                   I accept the Terms & Conditions.
@@ -247,7 +257,7 @@
                 <button
                   type="submit"
                   class="mt-auto hb bg-black hover:bg-white uppercase hover:text-black hover:border hover:border-black text-white text-[16px] py-2 px-6 duration-200 font-[500]"
-                  style="opacity: 1 !important;"
+                  style="opacity: 1 !important"
                 >
                   send message
                 </button>
@@ -325,7 +335,7 @@
                 <input
                   type="checkbox"
                   id="check"
-                  class="w-4 h-4 text-amber-600 rounded focus:ring-amber-500 border-[#AEAEAE]"
+                  class="w-4 h-4 text-[#000000] rounded focus:ring-amber-500 border-[#AEAEAE]"
                 />
                 <p class="text-sm text-gray-600">
                   I accept the Terms & Conditions.
@@ -354,66 +364,78 @@
         send message
       </button> -->
 
-
       <!-- Form Modal -->
-<div id="form-modal" class="fixed inset-0 w-screen flex items-center justify-center bg-black bg-opacity-50 z-10 hidden">
-  <div class="bg-white p-12 rounded-[8px] w-[85%] md:max-w-2xl relative">
-    
-    <!-- Close Button -->
-    <button id="close-modal" class="absolute top-2 right-3 text-black text-4xl">&times;</button>
-
-    <!-- Heading -->
-    <h2 class="text-2xl font-semibold text-center mb-4 uppercase" style="font-family: PlayfairDisplay2;">apply now</h2>
-
-    <!-- Form -->
-    <form id="modal-form" class="flex flex-col gap-4">
-      <!-- Name -->
-      <input
-        type="text"
-        name="name"
-        required
-        placeholder="Your Name"
-        class="w-full px-4 py-2 border border-[#F0F0F0] bg-[#F8F8F8] rounded-[8px] focus:outline-none"
-      />
-
-      <!-- Email -->
-      <input
-        type="email"
-        name="email"
-        required
-        placeholder="Your Email"
-        class="w-full px-4 py-2 border border-[#F0F0F0] bg-[#F8F8F8] rounded-[8px] focus:outline-none"
-      />
-
-      <!-- Phone -->
-      <input
-        type="tel"
-        name="phone"
-        required
-        placeholder="Your Phone"
-        class="w-full px-4 py-2 border border-[#F0F0F0] bg-[#F8F8F8] rounded-[8px] focus:outline-none"
-      />
-
-      <!-- Message -->
-      <textarea
-        name="message"
-        required
-        placeholder="Your Message"
-        rows="4"
-        class="w-full px-4 py-2 border border-[#F0F0F0] bg-[#F8F8F8] rounded-[8px] focus:outline-none resize-none"
-      ></textarea>
-
-      <!-- Submit Button -->
-       <div class="flex justify-center items-center"><button
-        type="submit"
-        class="bg-black text-white py-2 w-[174px] h-[48px] hover:bg-white hover:text-black hover:border hover:border-black transition-all"
+      <div
+        id="form-modal"
+        class="fixed inset-0 w-screen flex items-center justify-center bg-black bg-opacity-50 z-10 hidden"
       >
-        Submit 
-      </button></div>
-      
-    </form>
-  </div>
-</div>
+        <div class="bg-white p-12 rounded-[8px] w-[85%] md:max-w-2xl relative">
+          <!-- Close Button -->
+          <button
+            id="close-modal"
+            class="absolute top-2 right-3 text-black text-4xl"
+          >
+            &times;
+          </button>
+
+          <!-- Heading -->
+          <h2
+            class="text-2xl font-semibold text-center mb-4 uppercase"
+            style="font-family: PlayfairDisplay2"
+          >
+            apply now
+          </h2>
+
+          <!-- Form -->
+          <form id="modal-form" class="flex flex-col gap-4">
+            <!-- Name -->
+            <input
+              type="text"
+              name="name"
+              required
+              placeholder="Your Name"
+              class="w-full px-4 py-2 border border-[#F0F0F0] bg-[#F8F8F8] rounded-[8px] focus:outline-none"
+            />
+
+            <!-- Email -->
+            <input
+              type="email"
+              name="email"
+              required
+              placeholder="Your Email"
+              class="w-full px-4 py-2 border border-[#F0F0F0] bg-[#F8F8F8] rounded-[8px] focus:outline-none"
+            />
+
+            <!-- Phone -->
+            <input
+              type="tel"
+              name="phone"
+              required
+              placeholder="Your Phone"
+              class="w-full px-4 py-2 border border-[#F0F0F0] bg-[#F8F8F8] rounded-[8px] focus:outline-none"
+            />
+
+            <!-- Message -->
+            <textarea
+              name="message"
+              required
+              placeholder="Your Message"
+              rows="4"
+              class="w-full px-4 py-2 border border-[#F0F0F0] bg-[#F8F8F8] rounded-[8px] focus:outline-none resize-none"
+            ></textarea>
+
+            <!-- Submit Button -->
+            <div class="flex justify-center items-center">
+              <button
+                type="submit"
+                class="bg-black text-white py-2 w-[174px] h-[48px] hover:bg-white hover:text-black hover:border hover:border-black transition-all"
+              >
+                Submit
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
 
       <!-- Section 2 Is Starting From Here  -->
       <section
@@ -1056,7 +1078,7 @@
                 </label>
                 <button
                   type="submit"
-                  class="mt-auto  bg-black hover:bg-white border uppercase hover:border hover:border-black hover:text-black text-white text-[16px] py-2 px-6 duration-200 font-[500]"
+                  class="mt-auto bg-black hover:bg-white border uppercase hover:border hover:border-black hover:text-black text-white text-[16px] py-2 px-6 duration-200 font-[500]"
                 >
                   contact us
                 </button>
@@ -1069,7 +1091,7 @@
 
     <footer
       class="w-full min-h-[10vh] bg-[#2F2F2F] relative overflow-hidden"
-      style="z-index: 999 !important"
+      style="z-index: 5 !important"
     >
       <!-- Top Footer Div -->
       <div
@@ -1098,7 +1120,7 @@
           <div class="mt-2">
             <button
               type="submit"
-              class="bg-black border-black hover:bg-white border capitalize hover:border hover:border-black hover:text-black text-white text-sm md:text-[16px] w-full sm:w-[174px] h-[42px] md:h-[48px] duration-200 font-[500]"
+              class="bg-black frm border-black hover:bg-white border capitalize hover:border hover:border-black hover:text-black text-white text-sm md:text-[16px] w-full sm:w-[174px] h-[42px] md:h-[48px] duration-200 font-[500]"
             >
               Schedule A Site Visit
             </button>
@@ -1111,22 +1133,22 @@
             Usefull Links
           </h2>
           <p
-            class="text-[#FFFFFF99] text-base md:text-[18px] lg:text-[20px] font-normal capitalize"
+            class="text-[#FFFFFF99] text-base md:text-[14px] lg:text-[16px] font-normal capitalize"
           >
             home
           </p>
           <p
-            class="text-[#FFFFFF99] text-base md:text-[18px] lg:text-[20px] font-normal capitalize"
+            class="text-[#FFFFFF99] text-base md:text-[14px] lg:text-[16px] font-normal capitalize"
           >
             about
           </p>
           <p
-            class="text-[#FFFFFF99] text-base md:text-[18px] lg:text-[20px] font-normal capitalize"
+            class="text-[#FFFFFF99] text-base md:text-[14px] lg:text-[16px] font-normal capitalize"
           >
             projects
           </p>
           <p
-            class="text-[#FFFFFF99] text-base md:text-[18px] lg:text-[20px] font-normal capitalize"
+            class="text-[#FFFFFF99] text-base md:text-[14px] lg:text-[16px] font-normal capitalize"
           >
             brands
           </p>
@@ -1134,8 +1156,8 @@
 
         <!-- Column 3 -->
         <div class="flex flex-col gap-3 md:gap-4 w-full lg:w-[380px] text-left">
-          <p class="text-white font-medium text-lg md:text-xl">Follow Us</p>
-          <div class="flex gap-3 md:gap-4">
+          <p class="text-white  font-medium text-lg md:text-xl">Follow Us</p>
+          <div class="flex flwLinks gap-3 md:gap-4">
             <svg
               width="44"
               height="44"
@@ -1339,7 +1361,7 @@
             <span
               class="text-sm md:text-base lg:text-[18px] text-[#FFFFFF99] font-[500]"
             >
-              +91-9999999999
+              +91-8010137137
             </span>
           </div>
 
@@ -1360,8 +1382,7 @@
             <span
               class="text-sm md:text-base lg:text-[18px] text-[#FFFFFF99] font-[500]"
             >
-              ABC, Main Road, NH58 Bypass, Raj Nagar Extension, Ghaziabad, Uttar
-              Pradesh 201017
+              H-63, Sector 63, Noida, Uttar Pradesh 201301
             </span>
           </div>
 
@@ -1382,7 +1403,8 @@
             <span
               class="text-sm md:text-base lg:text-[18px] text-[#FFFFFF99] font-[500]"
             >
-              sales@demo.com
+            
+info@exoticahousing.in
             </span>
           </div>
         </div>
