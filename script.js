@@ -1382,13 +1382,13 @@ document.addEventListener("DOMContentLoaded", function () {
         scale: 1.03,
         duration: 0.3,
         ease: "power2.out",
-        color: "#2c5282",
+        color: "#000000",
         fontWeight: "500",
       });
 
       const iconContainer = item.querySelector("div");
       gsap.to(iconContainer, {
-        backgroundColor: "#2c5282",
+        backgroundColor: "#000000",
         duration: 0.3,
         ease: "power2.out",
       });
