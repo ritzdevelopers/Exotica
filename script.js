@@ -36,41 +36,61 @@ function navbarAnimations() {
 }
 const section3Slider = [
   {
-    img: "./images/s3/s3I1.png",
+    img: "https://exoticahousing.in/images/one32/Bridge-View-02.webp",
   },
   {
-    img: "./images/s3/s3I2.png",
+    img: "https://exoticahousing.in/images/one32/Elevation-Evening-View.webp",
   },
   {
-    img: "./images/s3/s3I1.png",
+    img: "https://exoticahousing.in/images/one32/Central-Plaza-View-02.webp",
   },
   {
-    img: "./images/s3/s3I2.png",
+    img: "https://exoticahousing.in/images/one32/C3-Night-Entry-View.webp",
   },
   {
-    img: "./images/s3/s3I1.png",
+    img: "https://exoticahousing.in/images/one32/Elevation-View-02.webp",
   },
   {
-    img: "./images/s3/s3I2.png",
+    img: "https://exoticahousing.in/images/one32/Stair-View.webp",
   },
   {
-    img: "./images/s3/s3I1.png",
+    img: "https://exoticahousing.in/images/one32/Retail-Dropoff-View-02.webp",
   },
   {
-    img: "./images/s3/s3I2.png",
+    img: "https://exoticahousing.in/images/one32/Right-Side-Elevation-View.webp",
   },
   {
-    img: "./images/s3/s3I1.png",
+    img: "https://exoticahousing.in/images/one32/Small-Image-02.webp",
   },
   {
-    img: "./images/s3/s3I2.png",
+    img: "https://exoticahousing.in/images/one32/Retail-View-New.webp",
   },
   {
-    img: "./images/s3/s3I1.png",
+    img: "https://exoticahousing.in/images/one32/Worm-Eye-View-02.webp",
   },
   {
-    img: "./images/s3/s3I2.png",
+    img: "https://exoticahousing.in/images/one32/Central-Sunken-Area-View-01.webp",
   },
+  // 
+  {
+    img: "https://exoticahousing.in/images/one32/Podium-Night-View.webp",
+  },
+  {
+    img: "https://exoticahousing.in/images/one32/Breakout-Zone-View-02.webp",
+  },
+  {
+    img: "https://exoticahousing.in/images/one32/Night-Areial-View.webp",
+  },
+  {
+    img: "https://exoticahousing.in/images/one32/Bridge-View-02.webp",
+  },
+  {
+    img: "https://exoticahousing.in/images/one32/Night-Areial-View.webp",
+  },
+  {
+    img: "https://exoticahousing.in/images/one32/Breakout-Zone-View-02.webp",
+  },
+  
 ];
 function addSlidingImgs() {
   const sliderContainer = document.querySelector(".slider");
@@ -805,7 +825,7 @@ function section3Animations() {
   const totalSlides = section3Slider.length;
 
   // Check screen size
-  const startValue = window.innerWidth < 768 ? "15%" : "-10%";
+  const startValue = window.innerWidth < 768 ? "1%" : "-10%";
 
   gsap.to(slider, {
     x: `-${(totalSlides - 1) * 95}%`,
@@ -1901,3 +1921,18 @@ requestAnimationFrame(raf)
 lenis.on('scroll', () => {
   ScrollTrigger.update()
 })
+
+
+  document.querySelectorAll(".scroll-link").forEach(link => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      const target = document.querySelector(link.getAttribute("href"));
+      if (target) {
+        gsap.to(window, {
+          duration: 1.2,
+          scrollTo: { y: target, offsetY: 50 }, // offset for navbar if needed
+          ease: "power2.out"
+        });
+      }
+    });
+  });

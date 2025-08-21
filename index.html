@@ -26,21 +26,21 @@
               class="flex space-x-8 uppercase"
               style="font-family: CustomFont"
             >
-              <li class="hover:text-black transition-colors cursor-pointer">
+              <a href="#about" class="hover:text-black scroll-link transition-colors cursor-pointer">
                 OVERVIEW
-              </li>
-              <li class="hover:text-black transition-colors cursor-pointer">
+              </a>
+              <a href="#brands" class="hover:text-black scroll-link transition-colors cursor-pointer">
                 AMENITIES
-              </li>
-              <li class="hover:text-black transition-colors cursor-pointer">
+              </a>
+              <a href="#floor" class="hover:text-black scroll-link transition-colors cursor-pointer">
                 Floor Plan
-              </li>
-              <li class="hover:text-black transition-colors cursor-pointer">
+              </a>
+              <a href="#location" class="hover:text-black scroll-link transition-colors cursor-pointer">
                 LOCATION
-              </li>
-              <li class="hover:text-black transition-colors cursor-pointer">
+              </a>
+              <a href="#form" class="hover:text-black scroll-link transition-colors cursor-pointer">
                 Pricelist
-              </li>
+              </a>
             </ul>
           </div>
 
@@ -115,22 +115,22 @@
             class="flex flex-col space-y-8 items-center text-xl uppercase"
             style="font-family: CustomFont"
           >
-            <li class="hover:text-black transition-colors cursor-pointer">
+            <a href="#about" class="hover:text-black scroll-link transition-colors cursor-pointer">
               OVERVIEW
-            </li>
-            <li class="hover:text-black transition-colors cursor-pointer">
+            </a>
+            <a href="#brands" class="hover:text-black scroll-link transition-colors cursor-pointer">
               AMENITIES
-            </li>
-            <li class="hover:text-black transition-colors cursor-pointer">
+            </a>
+            <a href="#form" class="hover:text-black scroll-link transition-colors cursor-pointer">
               Floor Plan
-            </li>
-            <li class="hover:text-black transition-colors cursor-pointer">
+            </a>
+            <a href="#location" class="hover:text-black scroll-link transition-colors cursor-pointer">
               LOCATION
-            </li>
-            <li class="hover:text-black transition-colors cursor-pointer">
+            </a>
+            <a href="#form" class="hover:text-black scroll-link transition-colors cursor-pointer">
               Pricelist
-            </li>
-            <li>
+            </a>
+            <li >
               <button
                 class="bg-black frm hover:bg-white hover:text-black hover:border text-[16px] hover:border-black text-white w-[174px] h-[48px] transition-colors font-[400]"
                 style="font-family: CustomFont"
@@ -172,6 +172,7 @@
 
     <!-- Section 1 Is Starting From Here -->
     <section
+    id=""
       class="s1 w-screen h-screen flex justify-between overflow-hidden items-center sticky -top-[60%] lg:-top-60 z-[-50px]"
       style="
         background-image: url(./images/s1/heroImg.png);
@@ -439,6 +440,7 @@
 
       <!-- Section 2 Is Starting From Here  -->
       <section
+       id="about"
         class="s2 w-screen min-h-screen flex flex-col gap-10 items-center py-4 pt-8"
       >
         <!-- Top Headings Text Data  -->
@@ -481,7 +483,7 @@
           class="btm relative w-[84%] rounded-[48px] flex cursor-pointer justify-center items-center md:h-[640px] overflow-hidden rounded-[48px]"
         >
           <video
-            src="./videos/s2Video.mp4"
+            src="https://exoticahousing.in//video/Commercial.mp4"
             class="h-full w-full object-cover"
             muted
           ></video>
@@ -496,6 +498,7 @@
 
       <!-- Section 3 Is Starting From Here  -->
       <section
+       id="brands"
         class="s3 w-screen py-10 min-h-screen bg-[#2F2F2F] mt-6 flex xl:items-center xl:justify-end items-center justify-center"
       >
         <!-- Main Div  -->
@@ -547,12 +550,21 @@
       </div>
 
       <!-- Section 4 -->
-      <section class="min-h-[20vh] s4 bg-[#FCFCFC] flex justify-center">
+      <section
+      id="projects"
+      class="min-h-[20vh] s4 bg-[#FCFCFC] flex justify-center">
         <div class="container mx-auto px-4 md:px-20 w-full">
           <div class="flex flex-col lg:flex-row justify-center gap-8">
             <!-- Left Side Div -->
-            <div class="w-full lg:w-1/3">
+            <div class="w-full lg:w-1/3 md:pt-[60px]">  
+              <div>
+                <h2 
+                  style="font-family: PlayfairDisplay2"
+                  class="playfair-font font-normal text-4xl lg:text-5xl mb-4">
+                Signature Luxury Features</h2>
+                </div>
               <div class="space-y-6">
+              
                 <div
                   class="cards flex flex-col justify-center h-24 border-b border-black"
                 >
@@ -560,9 +572,10 @@
                     class="PlayfairDisplay2 font-normal text-2xl capitalize"
                     style="font-family: PlayfairDisplay2"
                   >
-                    Exotica Forum
+                   Environmental Leadership Certification
+
                   </h2>
-                  <p class="text-[#000000]">Commercial, New Delhi</p>
+                  <p class="text-[#000000] hidden">Commercial, New Delhi</p>
                 </div>
                 <div
                   class="cards flex flex-col justify-center h-24 border-b border-black"
@@ -571,9 +584,9 @@
                     class="playfair-font font-normal text-2xl capitalize"
                     style="font-family: PlayfairDisplay2"
                   >
-                    Exotica Trade Tower
+                    Effortless, High-capacity Parking
                   </h2>
-                  <p class="text-[#000000]">Commercial, Gurugram</p>
+                  <p class="text-[#000000] hidden">Commercial, Gurugram</p>
                 </div>
                 <div
                   class="cards flex flex-col justify-center h-24 border-b border-black"
@@ -582,9 +595,9 @@
                     class="playfair-font font-normal text-2xl capitalize"
                     style="font-family: PlayfairDisplay2"
                   >
-                    Exotica Forum
+                 Iconic Burj Khalifa Glazing System
                   </h2>
-                  <p class="text-[#000000]">Commercial, New Delhi</p>
+                  <p class="text-[#000000] hidden">Commercial, New Delhi</p>
                 </div>
                 <div
                   class="cards flex flex-col justify-center h-24 border-b border-black"
@@ -593,9 +606,10 @@
                     class="playfair-font font-normal text-2xl capitalize"
                     style="font-family: PlayfairDisplay2"
                   >
-                    Exotica Forum
+                   Environmental Leadership Certification
+
                   </h2>
-                  <p class="text-[#000000]">Commercial, New Delhi</p>
+                  <p class="text-[#000000] hidden">Commercial, New Delhi</p>
                 </div>
                 <div
                   class="cards flex flex-col justify-center h-24 border-b border-black"
@@ -604,9 +618,10 @@
                     class="playfair-font font-normal text-2xl capitalize"
                     style="font-family: PlayfairDisplay2"
                   >
-                    Exotica Forum
+State-of-the-art Sky Lounge
+
                   </h2>
-                  <p class="text-[#000000]">Commercial, New Delhi</p>
+                  <p class="text-[#000000] hidden">Commercial, New Delhi</p>
                 </div>
               </div>
             </div>
@@ -735,7 +750,9 @@
 
       <!-- Section 5 Is Starting From Here  -->
 
-      <section class="s5 w-screen min-h-[60vh] py-10 flex justify-center mt-10">
+      <section
+      id="location"
+      class="s5 w-screen min-h-[60vh] py-10 flex justify-center mt-10">
         <!-- Main Centered Div -->
         <div
           class="lg:w-[95%] max-w-6xl p-10 lg:p-0 flex flex-col lg:flex-row xl:justify-center items-center xl:h-auto lg:h-[530px]"
@@ -809,6 +826,7 @@
 
       <!-- Section 6 Is Starting From Here  -->
       <section
+      id="floor"
         class="s6 w-screen flex justify-center min-h-screen bg-[#020202D1] py-8 md:py-16"
       >
         <!-- Main Centered Div -->
@@ -1006,6 +1024,7 @@
 
       <!-- Section 7 Is Starting From Here  -->
       <section
+      id="form"
         class="s7 w-screen min-h-[25vh] flex justify-center items-center py-8 md:py-20 px-4 sm:px-6 lg:px-8"
       >
         <!-- Main Centered Div  -->
@@ -1132,26 +1151,31 @@
           <h2 class="text-white font-medium text-lg md:text-xl">
             Usefull Links
           </h2>
-          <p
-            class="text-[#FFFFFF99] text-base md:text-[16px] lg:text-[16px] font-normal capitalize"
+          <a
+          href="#"
+            class="text-[#FFFFFF99] scroll-link text-base md:text-[16px] lg:text-[16px] font-normal capitalize"
+           
           >
             home
-          </p>
-          <p
-            class="text-[#FFFFFF99] text-base md:text-[16px] lg:text-[16px] font-normal capitalize"
+        </a>
+          <a
+          href="#about"
+            class="text-[#FFFFFF99] scroll-link text-base md:text-[16px] lg:text-[16px] font-normal capitalize"
           >
             about
-          </p>
-          <p
-            class="text-[#FFFFFF99] text-base md:text-[16px] lg:text-[16px] font-normal capitalize"
+        </a>
+          <a
+          href="#projects"
+            class="text-[#FFFFFF99] scroll-link text-base md:text-[16px] lg:text-[16px] font-normal capitalize"
           >
             projects
-          </p>
-          <p
-            class="text-[#FFFFFF99] text-base md:text-[16px] lg:text-[16px] font-normal capitalize"
+        </a>
+          <a
+          href="#brands"
+            class="text-[#FFFFFF99] scroll-link text-base md:text-[16px] lg:text-[16px] font-normal capitalize"
           >
             brands
-          </p>
+        </a>
         </div>
 
         <!-- Column 3 -->
@@ -1344,7 +1368,7 @@
           </div>
 
           <!-- Contact Info -->
-          <div class="flex items-center gap-2 text-white mt-2 md:mt-4">
+          <div class="flex hidden items-center gap-2 text-white mt-2 md:mt-4">
             <svg
               width="24"
               height="24"
@@ -1361,7 +1385,7 @@
             <span
               class="text-sm md:text-base lg:text-[16px] text-[#FFFFFF99] font-[500]"
             >
-              +91-8010137137
+              +91-9999999999
             </span>
           </div>
 
@@ -1386,7 +1410,7 @@
             </span>
           </div>
 
-          <div class="flex items-center gap-3 text-white">
+          <div class="flex hidden items-center gap-3 text-white">
             <svg
               width="20"
               height="16"
@@ -1404,7 +1428,7 @@
               class="text-sm md:text-base lg:text-[16px] text-[#FFFFFF99] font-[500]"
             >
             
-info@exoticahousing.in
+info@exampleabc.in
             </span>
           </div>
         </div>
@@ -1418,8 +1442,10 @@ info@exoticahousing.in
       </div>
     </footer>
     <script src="https://unpkg.com/@studio-freight/lenis"></script>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
     <script src="./script.js" defer></script>
   </body>
 </html>
