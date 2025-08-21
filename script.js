@@ -313,7 +313,7 @@ function dekstopNavAnimations() {
           // Create a subtle shine effect
           gsap.to(link, {
             keyframes: [
-              { color: "#010101ff", duration: 0.2 }, // amber-600
+              { color: "#000000", duration: 0.2 }, // amber-600
               { color: "#000000", duration: 0.3 },
             ],
           });
@@ -356,7 +356,7 @@ function dekstopNavAnimations() {
       indicator.style.position = "absolute";
       indicator.style.width = "6px";
       indicator.style.height = "6px";
-      indicator.style.backgroundColor = "#000000ff"; // amber-600
+      indicator.style.backgroundColor = "#000000"; // amber-600
       indicator.style.borderRadius = "50%";
       indicator.style.bottom = "-10px";
       indicator.style.opacity = "0";
@@ -1847,31 +1847,57 @@ window.addEventListener("load", () => {
   }, 3000); // 3000 ms = 3 seconds
 });
 
-function socialLinkHover() {
-  const allSVGS = document.querySelectorAll(".flwLinks svg");
-
-  allSVGS.forEach((svgEle) => {
-    // Mouse enter → scale up
-    svgEle.addEventListener("mouseenter", () => {
-      gsap.to(svgEle, {
+function socialIconHover() {
+  const allIcons = document.querySelectorAll(".socialIcns svg");
+  
+  allIcons.forEach((icn) => {
+    // Mouse enter animation
+    icn.addEventListener("mouseenter", () => {
+      gsap.to(icn, {
         scale: 1.2,
+        y: -5,
+        // rotation: 10,
         duration: 0.3,
-        ease: "power2.out"
+        ease: "back.out(1.7)",
       });
     });
 
-    // Mouse leave → scale back
-    svgEle.addEventListener("mouseleave", () => {
-      gsap.to(svgEle, {
+    // Mouse leave animation
+    icn.addEventListener("mouseleave", () => {
+      gsap.to(icn, {
         scale: 1,
-        duration: 0.3,
-        ease: "power2.inOut"
+        y: 0,
+        // rotation: 0,
+        duration: 0.4,
+        ease: "elastic.out(1, 0.8)",
       });
     });
   });
 }
 
-window.addEventListener("DOMContentLoaded", () => {
-  socialLinkHover();
-});
+socialIconHover();
 
+// Initialize Lenis with smooth settings
+const lenis = new Lenis({
+  duration: 1.6,
+  easing: (t) => 1 - Math.pow(1 - t, 3),
+  smooth: true,
+  smoothTouch: true,
+  wheelMultiplier: 1.2,
+})
+
+// GSAP + ScrollTrigger
+gsap.registerPlugin(ScrollTrigger)
+
+// Run Lenis inside RAF
+function raf(time) {
+  lenis.raf(time)
+  ScrollTrigger.update()  // sync GSAP with Lenis
+  requestAnimationFrame(raf)
+}
+requestAnimationFrame(raf)
+
+// Update GSAP when Lenis scrolls
+lenis.on('scroll', () => {
+  ScrollTrigger.update()
+})
