@@ -670,17 +670,17 @@ function section2Animations() {
     );
 
     // Add continuous subtle animation to video container
-    section2Tl.to(
-      videoContainer,
-      {
-        y: 10,
-        duration: 2,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut",
-      },
-      "-=0.5"
-    );
+    // section2Tl.to(
+    //   videoContainer,
+    //   {
+    //     y: 10,
+    //     duration: 2,
+    //     repeat: -1,
+    //     yoyo: true,
+    //     ease: "sine.inOut",
+    //   },
+    //   "-=0.5"
+    // );
 
     // Add hover effect to video container
     videoContainer.addEventListener("mouseenter", () => {
