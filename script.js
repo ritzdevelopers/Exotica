@@ -1930,7 +1930,7 @@ lenis.on('scroll', () => {
       if (target) {
         gsap.to(window, {
           duration: 1.2,
-          scrollTo: { y: target, offsetY: 50 }, // offset for navbar if needed
+          scrollTo: { y: target, offsetY: 50 },
           ease: "power2.out"
         });
       }
