@@ -313,7 +313,7 @@ function dekstopNavAnimations() {
           // Create a subtle shine effect
           gsap.to(link, {
             keyframes: [
-              { color: "#d97706", duration: 0.2 }, // amber-600
+              { color: "#000000", duration: 0.2 }, // amber-600
               { color: "#000000", duration: 0.3 },
             ],
           });
@@ -356,7 +356,7 @@ function dekstopNavAnimations() {
       indicator.style.position = "absolute";
       indicator.style.width = "6px";
       indicator.style.height = "6px";
-      indicator.style.backgroundColor = "#d97706"; // amber-600
+      indicator.style.backgroundColor = "#000000"; // amber-600
       indicator.style.borderRadius = "50%";
       indicator.style.bottom = "-10px";
       indicator.style.opacity = "0";
@@ -1846,3 +1846,58 @@ window.addEventListener("load", () => {
     openFormModal();
   }, 3000); // 3000 ms = 3 seconds
 });
+
+function socialIconHover() {
+  const allIcons = document.querySelectorAll(".socialIcns svg");
+  
+  allIcons.forEach((icn) => {
+    // Mouse enter animation
+    icn.addEventListener("mouseenter", () => {
+      gsap.to(icn, {
+        scale: 1.2,
+        y: -5,
+        // rotation: 10,
+        duration: 0.3,
+        ease: "back.out(1.7)",
+      });
+    });
+
+    // Mouse leave animation
+    icn.addEventListener("mouseleave", () => {
+      gsap.to(icn, {
+        scale: 1,
+        y: 0,
+        // rotation: 0,
+        duration: 0.4,
+        ease: "elastic.out(1, 0.8)",
+      });
+    });
+  });
+}
+
+socialIconHover();
+
+// Initialize Lenis with smooth settings
+const lenis = new Lenis({
+  duration: 1.6,
+  easing: (t) => 1 - Math.pow(1 - t, 3),
+  smooth: true,
+  smoothTouch: true,
+  wheelMultiplier: 1.2,
+})
+
+// GSAP + ScrollTrigger
+gsap.registerPlugin(ScrollTrigger)
+
+// Run Lenis inside RAF
+function raf(time) {
+  lenis.raf(time)
+  ScrollTrigger.update()  // sync GSAP with Lenis
+  requestAnimationFrame(raf)
+}
+requestAnimationFrame(raf)
+
+// Update GSAP when Lenis scrolls
+lenis.on('scroll', () => {
+  ScrollTrigger.update()
+})
