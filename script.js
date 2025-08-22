@@ -36,77 +36,42 @@ function navbarAnimations() {
 }
 const section3Slider = [
   {
-    img: "https://exoticahousing.in/images/one32/Bridge-View-02.webp",
+    img: "./images/s5/ex1.jpg",
   },
   {
-    img: "https://exoticahousing.in/images/one32/Elevation-Evening-View.webp",
+     img: "./images/s5/ex2.jpg",
   },
   {
-    img: "https://exoticahousing.in/images/one32/Central-Plaza-View-02.webp",
+   img: "./images/s5/ex3.jpg",
   },
   {
-    img: "https://exoticahousing.in/images/one32/C3-Night-Entry-View.webp",
+  img: "./images/s5/ex4.jpg",
   },
   {
-    img: "https://exoticahousing.in/images/one32/Elevation-View-02.webp",
+    img: "./images/s5/ex5.jpg",
   },
   {
-    img: "https://exoticahousing.in/images/one32/Stair-View.webp",
+    img: "./images/s5/ex6.jpg",
   },
   {
-    img: "https://exoticahousing.in/images/one32/Retail-Dropoff-View-02.webp",
+    img: "./images/s5/ex7.jpg",
   },
-  {
-    img: "https://exoticahousing.in/images/one32/Right-Side-Elevation-View.webp",
-  },
-  {
-    img: "https://exoticahousing.in/images/one32/Small-Image-02.webp",
-  },
-  {
-    img: "https://exoticahousing.in/images/one32/Retail-View-New.webp",
-  },
-  {
-    img: "https://exoticahousing.in/images/one32/Worm-Eye-View-02.webp",
-  },
-  {
-    img: "https://exoticahousing.in/images/one32/Central-Sunken-Area-View-01.webp",
-  },
-  // 
-  {
-    img: "https://exoticahousing.in/images/one32/Podium-Night-View.webp",
-  },
-  {
-    img: "https://exoticahousing.in/images/one32/Breakout-Zone-View-02.webp",
-  },
-  {
-    img: "https://exoticahousing.in/images/one32/Night-Areial-View.webp",
-  },
-  {
-    img: "https://exoticahousing.in/images/one32/Bridge-View-02.webp",
-  },
-  {
-    img: "https://exoticahousing.in/images/one32/Night-Areial-View.webp",
-  },
-  {
-    img: "https://exoticahousing.in/images/one32/Breakout-Zone-View-02.webp",
-  },
-  
 ];
-function addSlidingImgs() {
-  const sliderContainer = document.querySelector(".slider");
+// function addSlidingImgs() {
+//   const sliderContainer = document.querySelector(".slider");
 
-  section3Slider.forEach((imgSrc) => {
-    const div = document.createElement("div");
-    div.classList.add("sliderCard");
+//   section3Slider.forEach((imgSrc) => {
+//     const div = document.createElement("div");
+//     div.classList.add("sliderCard");
 
-    const img = document.createElement("img");
-    img.classList.add("sliderImage");
-    img.src = imgSrc.img;
+//     const img = document.createElement("img");
+//     img.classList.add("sliderImage");
+//     img.src = imgSrc.img;
 
-    div.appendChild(img);
-    sliderContainer.appendChild(div);
-  });
-}
+//     div.appendChild(img);
+//     sliderContainer.appendChild(div);
+//   });
+// }
 
 function heroSectionAnimations() {
   // Wait for the DOM to fully load
@@ -820,25 +785,66 @@ function section2Animations() {
 }
 section2Animations();
 // alert(section3Slider.length)
+function addSlidingImgs() {
+  const sliderContainer = document.querySelector(".slider");
+
+  section3Slider.forEach((imgSrc) => {
+    const div = document.createElement("div");
+    div.classList.add("sliderCard");
+
+    const img = document.createElement("img");
+    img.classList.add("sliderImage");
+    img.src = imgSrc.img;
+
+    div.appendChild(img);
+    sliderContainer.appendChild(div);
+  });
+
+  // ✅ call animations only AFTER slides exist
+  section3Animations();
+}
+
 function section3Animations() {
-  const slider = document.querySelectorAll(".sliderCard");
-  const totalSlides = section3Slider.length;
+  const leftMove = document.querySelector(".mvLft");
+  const rightMove = document.querySelector(".mvRght");
+  const sliderCards = document.querySelectorAll(".sliderCard");
+  const totalSlides = sliderCards.length;
 
-  // Check screen size
-  const startValue = window.innerWidth < 768 ? "1%" : "-10%";
+  let currentIndex = 0;
 
-  gsap.to(slider, {
-    x: `-${(totalSlides - 1) * 95}%`,
-    scrollTrigger: {
-      trigger: ".s3",
-      scroller: "body",
-      start: startValue, // dynamic based on screen size
-      end: `+=${totalSlides * 10}%`,
-      pin: true,
-      scrub: 3,
-    },
+  function moveSlide(index) {
+    if (index < 0) {
+      currentIndex = 0;
+    } else if (index >= totalSlides) {
+      currentIndex = totalSlides - 1;
+    } else {
+      currentIndex = index;
+    }
+
+    const slideWidth = sliderCards[0].offsetWidth + 16; // 16px for gap-4
+
+    // Shift each card individually
+    sliderCards.forEach((card, i) => {
+      gsap.to(card, {
+        x: `-${currentIndex * slideWidth}px`,
+        duration: 0.8,
+        ease: "power2.inOut",
+      });
+    });
+  }
+
+  leftMove.addEventListener("click", () => {
+    moveSlide(currentIndex - 1);
+  });
+
+  rightMove.addEventListener("click", () => {
+    moveSlide(currentIndex + 1);
   });
 }
+
+// ✅ now this will build slides AND then set up animations
+addSlidingImgs();
+
 
 function section3TxtAnimations() {
   // Wait for DOM to be fully loaded
@@ -1002,7 +1008,7 @@ section3TxtAnimations();
 document.addEventListener("DOMContentLoaded", function () {
   navbarAnimations();
   addSlidingImgs();
-  section3Animations();
+  
 });
 
 function section4Animations() {
@@ -1223,7 +1229,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const leftContent = document.querySelector(".s5 > div > div:first-child");
   const heading = document.querySelector(".s5 h1");
   const paragraph = document.querySelector(".s5 p");
-  const listItems = document.querySelectorAll(".s5 .listCard1");
+  // const listItems = document.querySelectorAll(".s5 .listCard1");
   const rightImage = document.querySelector(".s5 img");
 
   // Reset styles to ensure proper animation
@@ -1235,11 +1241,11 @@ document.addEventListener("DOMContentLoaded", function () {
     y: 80,
   });
 
-  gsap.set(listItems, {
-    opacity: 0,
-    x: -100,
-    rotation: -5,
-  });
+  // gsap.set(listItems, {
+  //   opacity: 0,
+  //   x: -100,
+  //   rotation: -5,
+  // });
 
   gsap.set(rightImage, {
     opacity: 0,
@@ -1312,54 +1318,54 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Animate list items with a staggered effect
   // Animate list items with a staggered effect
-  section5Tl.to(
-    listItems,
-    {
-      opacity: 1,
-      x: 0,
-      rotation: 0,
-      stagger: 0.3,
-      duration: 0.9,
-      ease: "back.out(1.7)",
-      onStart: () => {
-        // Add animation to the icons for each list item
-        listItems.forEach((item, index) => {
-          const iconContainer = item.querySelector("div");
-          const icon = item.querySelector("img");
+  // section5Tl.to(
+  //   listItems,
+  //   {
+  //     opacity: 1,
+  //     x: 0,
+  //     rotation: 0,
+  //     stagger: 0.3,
+  //     duration: 0.9,
+  //     ease: "back.out(1.7)",
+  //     onStart: () => {
+  //       // Add animation to the icons for each list item
+  //       listItems.forEach((item, index) => {
+  //         const iconContainer = item.querySelector("div");
+  //         const icon = item.querySelector("img");
 
-          // Set initial state for icons
-          gsap.set(iconContainer, {
-            rotation: -180,
-            scale: 0,
-          });
+  //         // Set initial state for icons
+  //         gsap.set(iconContainer, {
+  //           rotation: -180,
+  //           scale: 0,
+  //         });
 
-          gsap.set(icon, {
-            rotation: 180,
-            scale: 0,
-          });
+  //         gsap.set(icon, {
+  //           rotation: 180,
+  //           scale: 0,
+  //         });
 
-          // Animate icons with a delay based on their index
-          // This ensures each icon animates with its parent list item
-          gsap.to(iconContainer, {
-            rotation: 0,
-            scale: 1,
-            duration: 0.8,
-            ease: "elastic.out(1, 0.8)",
-            delay: index * 0.3 + 0.2, // Stagger the icons with their list items
-          });
+  //         // Animate icons with a delay based on their index
+  //         // This ensures each icon animates with its parent list item
+  //         gsap.to(iconContainer, {
+  //           rotation: 0,
+  //           scale: 1,
+  //           duration: 0.8,
+  //           ease: "elastic.out(1, 0.8)",
+  //           delay: index * 0.3 + 0.2, // Stagger the icons with their list items
+  //         });
 
-          gsap.to(icon, {
-            rotation: 0,
-            scale: 1,
-            duration: 0.8,
-            ease: "back.out(1.7)",
-            delay: index * 0.3 + 0.2, // Stagger the icons with their list items
-          });
-        });
-      },
-    },
-    "-=0.5"
-  );
+  //         gsap.to(icon, {
+  //           rotation: 0,
+  //           scale: 1,
+  //           duration: 0.8,
+  //           ease: "back.out(1.7)",
+  //           delay: index * 0.3 + 0.2, // Stagger the icons with their list items
+  //         });
+  //       });
+  //     },
+  //   },
+  //   "-=0.5"
+  // );
   // Animate the right image with a parallax effect
   section5Tl.to(
     rightImage,
@@ -1395,57 +1401,57 @@ document.addEventListener("DOMContentLoaded", function () {
   );
 
   // Add interactive hover effects to list items
-  listItems.forEach((item) => {
-    item.addEventListener("mouseenter", () => {
-      gsap.to(item, {
-        y: -10,
-        scale: 1.03,
-        duration: 0.3,
-        ease: "power2.out",
-        color: "#000000",
-        fontWeight: "500",
-      });
+  // listItems.forEach((item) => {
+  //   item.addEventListener("mouseenter", () => {
+  //     gsap.to(item, {
+  //       y: -10,
+  //       scale: 1.03,
+  //       duration: 0.3,
+  //       ease: "power2.out",
+  //       color: "#000000",
+  //       fontWeight: "500",
+  //     });
 
-      const iconContainer = item.querySelector("div");
-      gsap.to(iconContainer, {
-        backgroundColor: "#000000",
-        duration: 0.3,
-        ease: "power2.out",
-      });
+  //     const iconContainer = item.querySelector("div");
+  //     gsap.to(iconContainer, {
+  //       backgroundColor: "#000000",
+  //       duration: 0.3,
+  //       ease: "power2.out",
+  //     });
 
-      const icon = item.querySelector("img");
-      gsap.to(icon, {
-        filter: "invert(1) brightness(2)",
-        duration: 0.3,
-        ease: "power2.out",
-      });
-    });
+  //     const icon = item.querySelector("img");
+  //     gsap.to(icon, {
+  //       filter: "invert(1) brightness(2)",
+  //       duration: 0.3,
+  //       ease: "power2.out",
+  //     });
+  //   });
 
-    item.addEventListener("mouseleave", () => {
-      gsap.to(item, {
-        y: 0,
-        scale: 1,
-        duration: 0.3,
-        ease: "power2.out",
-        color: "#000000",
-        fontWeight: "400",
-      });
+  //   item.addEventListener("mouseleave", () => {
+  //     gsap.to(item, {
+  //       y: 0,
+  //       scale: 1,
+  //       duration: 0.3,
+  //       ease: "power2.out",
+  //       color: "#000000",
+  //       fontWeight: "400",
+  //     });
 
-      const iconContainer = item.querySelector("div");
-      gsap.to(iconContainer, {
-        backgroundColor: "#F8F4F4",
-        duration: 0.3,
-        ease: "power2.out",
-      });
+  //     const iconContainer = item.querySelector("div");
+  //     gsap.to(iconContainer, {
+  //       backgroundColor: "#F8F4F4",
+  //       duration: 0.3,
+  //       ease: "power2.out",
+  //     });
 
-      const icon = item.querySelector("img");
-      gsap.to(icon, {
-        filter: "invert(0) brightness(1)",
-        duration: 0.3,
-        ease: "power2.out",
-      });
-    });
-  });
+  //     const icon = item.querySelector("img");
+  //     gsap.to(icon, {
+  //       filter: "invert(0) brightness(1)",
+  //       duration: 0.3,
+  //       ease: "power2.out",
+  //     });
+  //   });
+  // });
 
   // Add a scroll-triggered parallax effect to the background
   ScrollTrigger.create({
