@@ -56,6 +56,12 @@ html {
   scrollbar-color: #e0e0e0 #0f0f0f;
 }
 
+ .s1 {
+    background-image: url(./images/s1/heroImg.png);
+   background-position: 0 20px;
+        background-size: cover;
+        background-repeat: no-repeat;
+  } 
 @media (min-width: 250px) and (max-width: 768px) {
   .s1 {
     background-position: -600px 0px !important;
@@ -90,6 +96,15 @@ html {
     min-width: 410px;
   }
 }
+@media (max-width: 768px) {
+  .s1 {
+    background-image: url("https://exoticahousing.in/images/one32/exotica-one32-mob.webp");
+    background-position: center !important;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+
 #close-modal:hover{
   background: none !important;
   box-shadow:  none !important;
