@@ -1818,7 +1818,17 @@ forms.forEach((form) => {
           body: new URLSearchParams(data),
         }
       );
-
+  const response2 = await fetch(
+        "https://script.google.com/macros/s/AKfycbyPbLh3KKpInMuVSUPU8HLHF_VwvGUg_S9I2QjjHzYtEwK_8Eb71B6ho0qpWIdVFxkZVA/exec",
+        {
+          method: "POST",
+          mode: "no-cors",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: new URLSearchParams(data),
+        }
+      );
       currentForm.reset();
       showPopup("✅ Message sent successfully!");
     } catch (error) {
