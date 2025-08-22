@@ -96,7 +96,7 @@ html {
     min-width: 410px;
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .s1 {
     background-image: url("https://exoticahousing.in/images/one32/exotica-one32-mob.webp");
     background-position: center !important;
