@@ -35,9 +35,7 @@ function navbarAnimations() {
   });
 }
 const section3Slider = [
-  {
-    img: "./images/s5/ex1.jpg",
-  },
+  
   {
      img: "./images/s5/ex2.jpg",
   },
