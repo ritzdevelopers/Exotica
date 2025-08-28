@@ -35,15 +35,14 @@ function navbarAnimations() {
   });
 }
 const section3Slider = [
-  
   {
-     img: "./images/s5/ex2.jpg",
+    img: "./images/s5/ex2.jpg",
   },
   {
-   img: "./images/s5/ex3.jpg",
+    img: "./images/s5/ex3.jpg",
   },
   {
-  img: "./images/s5/ex4.jpg",
+    img: "./images/s5/ex4.jpg",
   },
   {
     img: "./images/s5/ex5.jpg",
@@ -843,7 +842,6 @@ function section3Animations() {
 // ✅ now this will build slides AND then set up animations
 addSlidingImgs();
 
-
 function section3TxtAnimations() {
   // Wait for DOM to be fully loaded
   document.addEventListener("DOMContentLoaded", function () {
@@ -1006,7 +1004,6 @@ section3TxtAnimations();
 document.addEventListener("DOMContentLoaded", function () {
   navbarAnimations();
   addSlidingImgs();
-  
 });
 
 function section4Animations() {
@@ -1786,11 +1783,20 @@ allBtns.forEach((btn) => {
 forms.forEach((form) => {
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
+    const date = new Date();
 
     const currentForm = e.target;
 
     const formData = new FormData(currentForm);
-    const data = {};
+    const data = {
+      Date: date.toLocaleDateString("en-US"),
+      Time: date.toLocaleTimeString("en-US", {
+        hour12: true,
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+      }),
+    };
 
     formData.forEach((value, key) => {
       data[key] = value;
@@ -1816,7 +1822,7 @@ forms.forEach((form) => {
           body: new URLSearchParams(data),
         }
       );
-  const response2 = await fetch(
+      const response2 = await fetch(
         "https://script.google.com/macros/s/AKfycbyPbLh3KKpInMuVSUPU8HLHF_VwvGUg_S9I2QjjHzYtEwK_8Eb71B6ho0qpWIdVFxkZVA/exec",
         {
           method: "POST",
@@ -1883,7 +1889,7 @@ window.addEventListener("load", () => {
 
 function socialIconHover() {
   const allIcons = document.querySelectorAll(".socialIcns svg");
-  
+
   allIcons.forEach((icn) => {
     // Mouse enter animation
     icn.addEventListener("mouseenter", () => {
@@ -1918,35 +1924,34 @@ const lenis = new Lenis({
   smooth: true,
   smoothTouch: true,
   wheelMultiplier: 1.2,
-})
+});
 
 // GSAP + ScrollTrigger
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger);
 
 // Run Lenis inside RAF
 function raf(time) {
-  lenis.raf(time)
-  ScrollTrigger.update()  // sync GSAP with Lenis
-  requestAnimationFrame(raf)
+  lenis.raf(time);
+  ScrollTrigger.update(); // sync GSAP with Lenis
+  requestAnimationFrame(raf);
 }
-requestAnimationFrame(raf)
+requestAnimationFrame(raf);
 
 // Update GSAP when Lenis scrolls
-lenis.on('scroll', () => {
-  ScrollTrigger.update()
-})
+lenis.on("scroll", () => {
+  ScrollTrigger.update();
+});
 
-
-  document.querySelectorAll(".scroll-link").forEach(link => {
-    link.addEventListener("click", (e) => {
-      e.preventDefault();
-      const target = document.querySelector(link.getAttribute("href"));
-      if (target) {
-        gsap.to(window, {
-          duration: 1.2,
-          scrollTo: { y: target, offsetY: 50 },
-          ease: "power2.out"
-        });
-      }
-    });
+document.querySelectorAll(".scroll-link").forEach((link) => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+    const target = document.querySelector(link.getAttribute("href"));
+    if (target) {
+      gsap.to(window, {
+        duration: 1.2,
+        scrollTo: { y: target, offsetY: 50 },
+        ease: "power2.out",
+      });
+    }
   });
+});
