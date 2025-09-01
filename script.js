@@ -1939,7 +1939,7 @@ async function handleFrm2() {
       );
 
       currentForm.reset();
-      showPopup("✅ Form 2 submitted successfully!");
+      showPopup("✅ Form submitted successfully!");
        grecaptcha.reset(widget2);
     } catch (error) {
       console.error("Error!", error.message);
