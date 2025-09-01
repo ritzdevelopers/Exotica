@@ -1767,7 +1767,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Form Filling Logic
-const forms = document.querySelectorAll("form");
+// const forms = document.querySelectorAll("form");
 const loader = document.getElementById("loader");
 const popup = document.getElementById("popup");
 const allBtns = document.querySelectorAll(".frm");
@@ -1780,12 +1780,49 @@ allBtns.forEach((btn) => {
   });
 });
 
-forms.forEach((form) => {
+ let widget1, widget2, widget3, widget4;
+
+  // 🔹 Render each captcha separately
+  function initRecaptchas() {
+    widget1 = grecaptcha.render("recaptcha1", {
+      sitekey: "6Ldh8LkrAAAAAIlhtJ0eol_9KibojJYApba1hzeV"
+    });
+    widget2 = grecaptcha.render("recaptcha2", {
+      sitekey: "6Ldh8LkrAAAAAIlhtJ0eol_9KibojJYApba1hzeV"
+    });
+    widget3 = grecaptcha.render("recaptcha3", {
+      sitekey: "6Ldh8LkrAAAAAIlhtJ0eol_9KibojJYApba1hzeV"
+    });
+    widget4 = grecaptcha.render("recaptcha4", {
+      sitekey: "6Ldh8LkrAAAAAIlhtJ0eol_9KibojJYApba1hzeV"
+    });
+  }
+
+
+async function handleFrm1() {
+  const form = document.getElementById("frm1");
+
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
+     const token = grecaptcha.getResponse(widget1);
+      if (!token) {
+        showPopup("⚠️ Please complete CAPTCHA for Form .");
+        return;
+      }
     const date = new Date();
-
     const currentForm = e.target;
+
+    // ✅ Checkbox validation
+    const checkboxes = currentForm.querySelectorAll(".check");
+    let allChecked = true;
+    checkboxes.forEach((cb) => {
+      if (!cb.checked) allChecked = false;
+    });
+
+    if (!allChecked) {
+      showPopup("Please accept all Terms & Conditions.");
+      return;
+    }
 
     const formData = new FormData(currentForm);
     const data = {
@@ -1802,47 +1839,295 @@ forms.forEach((form) => {
       data[key] = value;
     });
 
-    const checkbox = currentForm.querySelector("#check");
-    // if (!checkbox || !checkbox.checked) {
-    //   showPopup("Please accept the Terms & Conditions.");
-    //   return;
-    // }
-
     showLoader(true);
 
     try {
-      const response = await fetch(
+      await fetch(
         "https://script.google.com/macros/s/AKfycbyMzyLttOEepL6xxd1UzMPfxQAeHxKCryPSUxo26_Dc2-f0ed2RGpCwl8RKezWEVaU4/exec",
         {
           method: "POST",
           mode: "no-cors",
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-          },
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
           body: new URLSearchParams(data),
         }
       );
-      const response2 = await fetch(
+
+      await fetch(
         "https://script.google.com/macros/s/AKfycbyPbLh3KKpInMuVSUPU8HLHF_VwvGUg_S9I2QjjHzYtEwK_8Eb71B6ho0qpWIdVFxkZVA/exec",
         {
           method: "POST",
           mode: "no-cors",
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-          },
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
           body: new URLSearchParams(data),
         }
       );
+
       currentForm.reset();
-      showPopup("✅ Message sent successfully!");
+        grecaptcha.reset(widget1); // reset only this captcha
+      showPopup("✅ Form submitted successfully!");
     } catch (error) {
+
       console.error("Error!", error.message);
-      showPopup("❌ There was an error sending the message.");
+      showPopup("❌ Error submitting Form 1.");
     } finally {
       showLoader(false);
     }
   });
-});
+}
+
+async function handleFrm2() {
+  const form = document.getElementById("frm2");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+     const token = grecaptcha.getResponse(widget2);
+      if (!token) {
+        showPopup("⚠️ Please complete CAPTCHA for Form .");
+        return;
+      }
+    const date = new Date();
+    const currentForm = e.target;
+
+    // ✅ Checkbox validation
+    const checkboxes = currentForm.querySelectorAll(".check");
+    let allChecked = true;
+    checkboxes.forEach((cb) => {
+      if (!cb.checked) allChecked = false;
+    });
+
+    if (!allChecked) {
+      showPopup("Please accept all Terms & Conditions.");
+      return;
+    }
+
+    const formData = new FormData(currentForm);
+    const data = {
+      Date: date.toLocaleDateString("en-US"),
+      Time: date.toLocaleTimeString("en-US", {
+        hour12: true,
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+      }),
+    };
+
+    formData.forEach((value, key) => {
+      data[key] = value;
+    });
+
+    showLoader(true);
+
+    try {
+      await fetch(
+        "https://script.google.com/macros/s/AKfycbyMzyLttOEepL6xxd1UzMPfxQAeHxKCryPSUxo26_Dc2-f0ed2RGpCwl8RKezWEVaU4/exec",
+        {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams(data),
+        }
+      );
+
+      await fetch(
+        "https://script.google.com/macros/s/AKfycbyPbLh3KKpInMuVSUPU8HLHF_VwvGUg_S9I2QjjHzYtEwK_8Eb71B6ho0qpWIdVFxkZVA/exec",
+        {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams(data),
+        }
+      );
+
+      currentForm.reset();
+      showPopup("✅ Form 2 submitted successfully!");
+       grecaptcha.reset(widget2);
+    } catch (error) {
+      console.error("Error!", error.message);
+      showPopup("❌ Error submitting Form 1.");
+    } finally {
+      showLoader(false);
+    }
+  });
+}
+
+async function handleFrm3() {
+  const form = document.getElementById("frm3");
+form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const date = new Date();
+    const currentForm = e.target;
+ const token = grecaptcha.getResponse(widget3);
+      if (!token) {
+        showPopup("⚠️ Please complete CAPTCHA for Form .");
+        return;
+      }
+    // ✅ Checkbox validation
+    const checkboxes = currentForm.querySelectorAll(".check");
+    let allChecked = true;
+    checkboxes.forEach((cb) => {
+      if (!cb.checked) allChecked = false;
+    });
+
+    if (!allChecked) {
+      showPopup("Please accept all Terms & Conditions.");
+      return;
+    }
+
+    const formData = new FormData(currentForm);
+    const data = {
+      Date: date.toLocaleDateString("en-US"),
+      Time: date.toLocaleTimeString("en-US", {
+        hour12: true,
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+      }),
+    };
+
+    formData.forEach((value, key) => {
+      data[key] = value;
+    });
+
+    showLoader(true);
+
+    try {
+      await fetch(
+        "https://script.google.com/macros/s/AKfycbyMzyLttOEepL6xxd1UzMPfxQAeHxKCryPSUxo26_Dc2-f0ed2RGpCwl8RKezWEVaU4/exec",
+        {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams(data),
+        }
+      );
+
+      await fetch(
+        "https://script.google.com/macros/s/AKfycbyPbLh3KKpInMuVSUPU8HLHF_VwvGUg_S9I2QjjHzYtEwK_8Eb71B6ho0qpWIdVFxkZVA/exec",
+        {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams(data),
+        }
+      );
+
+      currentForm.reset();
+      showPopup("✅ Form submitted successfully!");
+       grecaptcha.reset(widget3);
+    } catch (error) {
+      console.error("Error!", error.message);
+      showPopup("❌ Error submitting Form 1.");
+    } finally {
+      showLoader(false);
+    }
+  });
+}
+
+async function handleFrm4() {
+  const form = document.getElementById("frm4");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const date = new Date();
+    const currentForm = e.target;
+  const token = grecaptcha.getResponse(widget4);
+      if (!token) {
+        showPopup("⚠️ Please complete CAPTCHA for Form .");
+        return;
+      }
+    // ✅ Checkbox validation
+    const checkboxes = currentForm.querySelectorAll(".check");
+    let allChecked = true;
+    checkboxes.forEach((cb) => {
+      if (!cb.checked) allChecked = false;
+    });
+
+    if (!allChecked) {
+      showPopup("Please accept all Terms & Conditions.");
+      return;
+    }
+
+    const formData = new FormData(currentForm);
+    const data = {
+      Date: date.toLocaleDateString("en-US"),
+      Time: date.toLocaleTimeString("en-US", {
+        hour12: true,
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+      }),
+    };
+
+    formData.forEach((value, key) => {
+      data[key] = value;
+    });
+
+    showLoader(true);
+
+    try {
+      await fetch(
+        "https://script.google.com/macros/s/AKfycbyMzyLttOEepL6xxd1UzMPfxQAeHxKCryPSUxo26_Dc2-f0ed2RGpCwl8RKezWEVaU4/exec",
+        {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams(data),
+        }
+      );
+
+      await fetch(
+        "https://script.google.com/macros/s/AKfycbyPbLh3KKpInMuVSUPU8HLHF_VwvGUg_S9I2QjjHzYtEwK_8Eb71B6ho0qpWIdVFxkZVA/exec",
+        {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams(data),
+        }
+      );
+
+      currentForm.reset();
+      showPopup("✅ Form submitted successfully!");
+       grecaptcha.reset(widget4);
+    } catch (error) {
+      console.error("Error!", error.message);
+      showPopup("❌ Error submitting Form 1.");
+    } finally {
+      showLoader(false);
+    }
+  });
+}
+
+// ✅ Call all functions
+handleFrm1();
+handleFrm2();
+handleFrm3();
+handleFrm4();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function showLoader(show) {
   loader.classList.toggle("hidden", !show);
@@ -1881,11 +2166,11 @@ document.addEventListener("keydown", (e) => {
 });
 
 // Automatically open the form modal 3 seconds after page load
-window.addEventListener("load", () => {
-  setTimeout(() => {
-    openFormModal();
-  }, 3000); // 3000 ms = 3 seconds
-});
+// window.addEventListener("load", () => {
+//   setTimeout(() => {
+//     openFormModal();
+//   }, 3000); // 3000 ms = 3 seconds
+// });
 
 function socialIconHover() {
   const allIcons = document.querySelectorAll(".socialIcns svg");

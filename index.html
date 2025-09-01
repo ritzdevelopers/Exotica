@@ -229,7 +229,7 @@
         <!-- Form Content -->
         <div class="flex flex-col">
           <!-- Heading -->
-          <div class="mb-6 mt-6">
+          <div class="mb-4 mt-4">
             <p class="capitalize text-[20px] font-[500] text-black">
               get in touch
             </p>
@@ -237,7 +237,7 @@
 
           <!-- Form -->
           <div class="">
-            <form action="" class="h-full flex flex-col gap-3">
+            <form id="frm1" class="h-full flex flex-col gap-3">
               <!-- Name Input -->
               <input
                 required
@@ -274,17 +274,12 @@
               ></textarea>
 
               <!-- Checkbox -->
-              <label for="check" class="flex items-center gap-2 mt-2">
-                <input
-                  type="checkbox"
-                  id="check"
-                  class="w-4 h-4 text-black rounded focus:ring-amber-500 border-[#AEAEAE]"
-                />
-                <p class="text-sm text-gray-600">
-                  I accept the Terms & Conditions.
-                </p>
-              </label>
-
+              
+              <div
+                id="recaptcha1"
+                class="g-recaptcha"
+                data-sitekey="6Ldh8LkrAAAAAIlhtJ0eol_9KibojJYApba1hzeV"
+              ></div>
               <!-- Submit Button (assuming you want one) -->
               <div>
                 <button
@@ -335,7 +330,7 @@
 
           <!-- Form -->
           <div class="">
-            <form action="" class="h-full flex flex-col gap-3">
+            <form id="frm2" action="" class="h-full flex flex-col gap-3">
               <!-- Name Input -->
               <input
                 type="text"
@@ -364,16 +359,13 @@
               ></textarea>
 
               <!-- Checkbox -->
-              <label for="check" class="flex items-center gap-2 mt-2">
-                <input
-                  type="checkbox"
-                  id="check"
-                  class="w-4 h-4 text-black rounded focus:ring-amber-500 border-[#AEAEAE]"
-                />
-                <p class="text-sm text-gray-600">
-                  I accept the Terms & Conditions.
-                </p>
-              </label>
+              
+
+              <div
+                id="recaptcha2"
+                class="g-recaptcha"
+                data-sitekey="6Ldh8LkrAAAAAIlhtJ0eol_9KibojJYApba1hzeV"
+              ></div>
 
               <!-- Submit Button (assuming you want one) -->
               <div>
@@ -400,7 +392,7 @@
       <!-- Form Modal -->
       <div
         id="form-modal"
-        class="fixed inset-0 w-screen flex items-center justify-center bg-black bg-opacity-50 z-[999] hidden"
+        class="fixed inset-0 w-screen flex items-center justify-center bg-black bg-opacity-50 z-[999]"
       >
         <div class="bg-white p-12 rounded-[8px] w-[85%] md:max-w-2xl relative">
           <!-- Close Button -->
@@ -420,7 +412,7 @@
           </h2>
 
           <!-- Form -->
-          <form id="modal-form" class="flex flex-col gap-4">
+          <form id="frm3" class="flex flex-col gap-4">
             <!-- Name -->
             <input
               type="text"
@@ -456,7 +448,11 @@
               rows="4"
               class="w-full px-4 py-2 border border-[#F0F0F0] bg-[#F8F8F8] rounded-[8px] focus:outline-none resize-none"
             ></textarea>
-
+            <div
+              id="recaptcha3"
+              class="g-recaptcha"
+              data-sitekey="6Ldh8LkrAAAAAIlhtJ0eol_9KibojJYApba1hzeV"
+            ></div>
             <!-- Submit Button -->
             <div class="flex justify-center items-center">
               <button
@@ -569,7 +565,7 @@
           <!-- Right Side Pin Carousel  -->
           <div class="xl:w-[60%] relative w-full mt-6 xl:mt-0">
             <div
-              class="btns absolute top-0 z-50 left-0 p-8  h-full w-full flex justify-between items-center"
+              class="btns absolute top-0 z-50 left-0 p-8 h-full w-full flex justify-between items-center"
             >
               <div class="w-[63px] h-[62px] mvLft">
                 <img
@@ -627,8 +623,7 @@
                     class="PlayfairDisplay2 font-normal text-2xl capitalize"
                     style="font-family: PlayfairDisplay2"
                   >
-                    Certified Green Building with LEED
-                    Platinum Rating.
+                    Certified Green Building with LEED Platinum Rating.
                   </h2>
                   <p class="text-[#000000] hidden">Commercial, New Delhi</p>
                 </div>
@@ -882,8 +877,10 @@
             </h1>
             <p
               class="text-[#FFFFFF] text-[16px] sm:text-[17px] md:text-[18px] font-[400]"
-            >One32 offers thoughtfully curated office spaces designed for visibility, flexibility, and high rental demand, catering to evolving business needs.
-
+            >
+              One32 offers thoughtfully curated office spaces designed for
+              visibility, flexibility, and high rental demand, catering to
+              evolving business needs.
             </p>
           </div>
 
@@ -1090,7 +1087,7 @@
             class="w-full"
             style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"
           >
-            <form id="myForm" class="w-full p-10">
+            <form id="frm4" class="w-full p-10">
               <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
                 <input
                   required
@@ -1129,12 +1126,17 @@
                   <input
                     type="checkbox"
                     id="checkB"
-                    class="w-4 h-4 text-blue-600 rounded focus:ring-blue-500"
+                    class="w-4 h-4 check text-blue-600 rounded focus:ring-blue-500"
                   />
                   <p class="text-sm sm:text-base">
                     I accept the Terms & Conditions.
                   </p>
                 </label>
+                <div
+                  id="recaptcha4"
+                  class="g-recaptcha"
+                  data-sitekey="6Ldh8LkrAAAAAIlhtJ0eol_9KibojJYApba1hzeV"
+                ></div>
                 <button
                   type="submit"
                   class="mt-auto bg-black hover:bg-white border uppercase hover:border hover:border-black hover:text-black text-white text-[16px] py-2 px-6 duration-200 font-[500]"
@@ -1195,7 +1197,7 @@
             href="#about"
             class="text-[#FFFFFF99] scroll-link text-base md:text-[16px] lg:text-[16px] font-normal capitalize"
           >
-               OVERVIEW
+            OVERVIEW
           </a>
           <a
             href="#brands"
@@ -1207,7 +1209,7 @@
             href="#floor"
             class="text-[#FFFFFF99] scroll-link text-base md:text-[16px] lg:text-[16px] font-normal capitalize"
           >
-               Floor Plan
+            Floor Plan
           </a>
           <a
             href="#location"
@@ -1215,7 +1217,7 @@
           >
             LOCATION
           </a>
-           <a
+          <a
             href="#Pricelist"
             class="text-[#FFFFFF99] scroll-link text-base md:text-[16px] lg:text-[16px] font-normal capitalize"
           >
@@ -1410,9 +1412,13 @@
                 />
               </defs>
             </svg>
-           <div class="bg-white p-3 rounded-full tyc">
-             <img src="./images/footer/ytLg.png" alt="" class="w-full h-full object-contain">
-           </div>
+            <div class="bg-white p-3 rounded-full tyc">
+              <img
+                src="./images/footer/ytLg.png"
+                alt=""
+                class="w-full h-full object-contain"
+              />
+            </div>
           </div>
 
           <!-- Contact Info -->
@@ -1488,11 +1494,12 @@
         </p>
       </div>
     </footer>
-    <script src="https://unpkg.com/@studio-freight/lenis"></script>
 
+    <script src="https://unpkg.com/@studio-freight/lenis"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+<script src="https://www.google.com/recaptcha/api.js?onload=initRecaptchas&render=explicit" async defer></script>
     <script src="./script.js" defer></script>
   </body>
 </html>
