@@ -1882,7 +1882,31 @@ async function handleFrm1() {
         Fld3: "UTMMedium",
       });
 
+      // ✅ Meta API URL
+      const metaUrl = new URL("https://exotica12.realeasy.in/WebCreate.aspx");
+      metaUrl.search = new URLSearchParams({
+        UID: "fourqt",
+        PWD: "wn9mxO76f34=",
+        Channel: "CTMMETA",
+        Src: "CTM Meta",
+        ISD: "91",
+        Mob: data.phone, // from form input
+        Email: data.email, // from form input
+        name: data.name, // from form input
+        City: "",
+        Location: "",
+        Project: "",
+        Remark: data.message, // from form input
+        url: "",
+        UniqueId: "0",
+        Fld1: "UTMSource",
+        Fld2: "UTMCampaign",
+        Fld3: "UTMMedium",
+      });
+
+      // Send both requests
       await fetch(crmUrl, { method: "GET", mode: "no-cors" });
+      await fetch(metaUrl, { method: "GET", mode: "no-cors" });
 
       currentForm.reset();
       grecaptcha.reset(widget1); // reset only this captcha
@@ -1980,7 +2004,31 @@ async function handleFrm2() {
         Fld3: "UTMMedium",
       });
 
+      // ✅ Meta API URL
+      const metaUrl = new URL("https://exotica12.realeasy.in/WebCreate.aspx");
+      metaUrl.search = new URLSearchParams({
+        UID: "fourqt",
+        PWD: "wn9mxO76f34=",
+        Channel: "CTMMETA",
+        Src: "CTM Meta",
+        ISD: "91",
+        Mob: data.phone, // from form input
+        Email: data.email, // from form input
+        name: data.name, // from form input
+        City: "",
+        Location: "",
+        Project: "",
+        Remark: data.message, // from form input
+        url: "",
+        UniqueId: "0",
+        Fld1: "UTMSource",
+        Fld2: "UTMCampaign",
+        Fld3: "UTMMedium",
+      });
+
+      // Send both requests
       await fetch(crmUrl, { method: "GET", mode: "no-cors" });
+      await fetch(metaUrl, { method: "GET", mode: "no-cors" });
 
       currentForm.reset();
       showPopup("✅ Form submitted successfully!");
@@ -2054,7 +2102,7 @@ async function handleFrm3() {
           body: new URLSearchParams(data),
         }
       );
-const crmUrl = new URL("https://exotica12.realeasy.in/WebCreate.aspx");
+      const crmUrl = new URL("https://exotica12.realeasy.in/WebCreate.aspx");
       crmUrl.search = new URLSearchParams({
         UID: "fourqt",
         PWD: "wn9mxO76f34=",
@@ -2075,7 +2123,32 @@ const crmUrl = new URL("https://exotica12.realeasy.in/WebCreate.aspx");
         Fld3: "UTMMedium",
       });
 
+      // ✅ Meta API URL
+      const metaUrl = new URL("https://exotica12.realeasy.in/WebCreate.aspx");
+      metaUrl.search = new URLSearchParams({
+        UID: "fourqt",
+        PWD: "wn9mxO76f34=",
+        Channel: "CTMMETA",
+        Src: "CTM Meta",
+        ISD: "91",
+        Mob: data.phone, // from form input
+        Email: data.email, // from form input
+        name: data.name, // from form input
+        City: "",
+        Location: "",
+        Project: "",
+        Remark: data.message, // from form input
+        url: "",
+        UniqueId: "0",
+        Fld1: "UTMSource",
+        Fld2: "UTMCampaign",
+        Fld3: "UTMMedium",
+      });
+
+      // Send both requests
       await fetch(crmUrl, { method: "GET", mode: "no-cors" });
+      await fetch(metaUrl, { method: "GET", mode: "no-cors" });
+
       currentForm.reset();
       showPopup("✅ Form submitted successfully!");
       grecaptcha.reset(widget3);
@@ -2149,7 +2222,7 @@ async function handleFrm4() {
           body: new URLSearchParams(data),
         }
       );
-const crmUrl = new URL("https://exotica12.realeasy.in/WebCreate.aspx");
+      const crmUrl = new URL("https://exotica12.realeasy.in/WebCreate.aspx");
       crmUrl.search = new URLSearchParams({
         UID: "fourqt",
         PWD: "wn9mxO76f34=",
@@ -2170,7 +2243,32 @@ const crmUrl = new URL("https://exotica12.realeasy.in/WebCreate.aspx");
         Fld3: "UTMMedium",
       });
 
+      // ✅ Meta API URL
+      const metaUrl = new URL("https://exotica12.realeasy.in/WebCreate.aspx");
+      metaUrl.search = new URLSearchParams({
+        UID: "fourqt",
+        PWD: "wn9mxO76f34=",
+        Channel: "CTMMETA",
+        Src: "CTM Meta",
+        ISD: "91",
+        Mob: data.phone, // from form input
+        Email: data.email, // from form input
+        name: data.name, // from form input
+        City: "",
+        Location: "",
+        Project: "",
+        Remark: data.message, // from form input
+        url: "",
+        UniqueId: "0",
+        Fld1: "UTMSource",
+        Fld2: "UTMCampaign",
+        Fld3: "UTMMedium",
+      });
+
+      // Send both requests
       await fetch(crmUrl, { method: "GET", mode: "no-cors" });
+      await fetch(metaUrl, { method: "GET", mode: "no-cors" });
+
       currentForm.reset();
       showPopup("✅ Form submitted successfully!");
       grecaptcha.reset(widget4);
