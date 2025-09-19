@@ -1780,35 +1780,34 @@ allBtns.forEach((btn) => {
   });
 });
 
- let widget1, widget2, widget3, widget4;
+let widget1, widget2, widget3, widget4;
 
-  // 🔹 Render each captcha separately
-  function initRecaptchas() {
-    widget1 = grecaptcha.render("recaptcha1", {
-      sitekey: "6Ldh8LkrAAAAAIlhtJ0eol_9KibojJYApba1hzeV"
-    });
-    widget2 = grecaptcha.render("recaptcha2", {
-      sitekey: "6Ldh8LkrAAAAAIlhtJ0eol_9KibojJYApba1hzeV"
-    });
-    widget3 = grecaptcha.render("recaptcha3", {
-      sitekey: "6Ldh8LkrAAAAAIlhtJ0eol_9KibojJYApba1hzeV"
-    });
-    widget4 = grecaptcha.render("recaptcha4", {
-      sitekey: "6Ldh8LkrAAAAAIlhtJ0eol_9KibojJYApba1hzeV"
-    });
-  }
-
+// 🔹 Render each captcha separately
+function initRecaptchas() {
+  widget1 = grecaptcha.render("recaptcha1", {
+    sitekey: "6Ldh8LkrAAAAAIlhtJ0eol_9KibojJYApba1hzeV",
+  });
+  widget2 = grecaptcha.render("recaptcha2", {
+    sitekey: "6Ldh8LkrAAAAAIlhtJ0eol_9KibojJYApba1hzeV",
+  });
+  widget3 = grecaptcha.render("recaptcha3", {
+    sitekey: "6Ldh8LkrAAAAAIlhtJ0eol_9KibojJYApba1hzeV",
+  });
+  widget4 = grecaptcha.render("recaptcha4", {
+    sitekey: "6Ldh8LkrAAAAAIlhtJ0eol_9KibojJYApba1hzeV",
+  });
+}
 
 async function handleFrm1() {
   const form = document.getElementById("frm1");
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
-     const token = grecaptcha.getResponse(widget1);
-      if (!token) {
-        showPopup("⚠️ Please complete CAPTCHA for Form .");
-        return;
-      }
+    const token = grecaptcha.getResponse(widget1);
+    if (!token) {
+      showPopup("⚠️ Please complete CAPTCHA for Form .");
+      return;
+    }
     const date = new Date();
     const currentForm = e.target;
 
@@ -1862,11 +1861,33 @@ async function handleFrm1() {
         }
       );
 
+      const crmUrl = new URL("https://exotica12.realeasy.in/WebCreate.aspx");
+      crmUrl.search = new URLSearchParams({
+        UID: "fourqt",
+        PWD: "wn9mxO76f34=",
+        Channel: "CTMLP",
+        Src: "CTM LP Google",
+        ISD: "91",
+        Mob: data.phone, // from form input
+        Email: data.email, // from form input
+        name: data.name, // from form input
+        City: "",
+        Location: "",
+        Project: "",
+        Remark: data.message, // from form input
+        url: "",
+        UniqueId: "0",
+        Fld1: "UTMSource",
+        Fld2: "UTMCampaign",
+        Fld3: "UTMMedium",
+      });
+
+      await fetch(crmUrl, { method: "GET", mode: "no-cors" });
+
       currentForm.reset();
-        grecaptcha.reset(widget1); // reset only this captcha
+      grecaptcha.reset(widget1); // reset only this captcha
       showPopup("✅ Form submitted successfully!");
     } catch (error) {
-
       console.error("Error!", error.message);
       showPopup("❌ Error submitting Form 1.");
     } finally {
@@ -1880,11 +1901,11 @@ async function handleFrm2() {
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
-     const token = grecaptcha.getResponse(widget2);
-      if (!token) {
-        showPopup("⚠️ Please complete CAPTCHA for Form .");
-        return;
-      }
+    const token = grecaptcha.getResponse(widget2);
+    if (!token) {
+      showPopup("⚠️ Please complete CAPTCHA for Form .");
+      return;
+    }
     const date = new Date();
     const currentForm = e.target;
 
@@ -1938,9 +1959,32 @@ async function handleFrm2() {
         }
       );
 
+      const crmUrl = new URL("https://exotica12.realeasy.in/WebCreate.aspx");
+      crmUrl.search = new URLSearchParams({
+        UID: "fourqt",
+        PWD: "wn9mxO76f34=",
+        Channel: "CTMLP",
+        Src: "CTM LP Google",
+        ISD: "91",
+        Mob: data.phone, // from form input
+        Email: data.email, // from form input
+        name: data.name, // from form input
+        City: "",
+        Location: "",
+        Project: "",
+        Remark: data.message, // from form input
+        url: "",
+        UniqueId: "0",
+        Fld1: "UTMSource",
+        Fld2: "UTMCampaign",
+        Fld3: "UTMMedium",
+      });
+
+      await fetch(crmUrl, { method: "GET", mode: "no-cors" });
+
       currentForm.reset();
       showPopup("✅ Form submitted successfully!");
-       grecaptcha.reset(widget2);
+      grecaptcha.reset(widget2);
     } catch (error) {
       console.error("Error!", error.message);
       showPopup("❌ Error submitting Form 1.");
@@ -1952,15 +1996,15 @@ async function handleFrm2() {
 
 async function handleFrm3() {
   const form = document.getElementById("frm3");
-form.addEventListener("submit", async (e) => {
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
     const date = new Date();
     const currentForm = e.target;
- const token = grecaptcha.getResponse(widget3);
-      if (!token) {
-        showPopup("⚠️ Please complete CAPTCHA for Form .");
-        return;
-      }
+    const token = grecaptcha.getResponse(widget3);
+    if (!token) {
+      showPopup("⚠️ Please complete CAPTCHA for Form .");
+      return;
+    }
     // ✅ Checkbox validation
     const checkboxes = currentForm.querySelectorAll(".check");
     let allChecked = true;
@@ -2010,10 +2054,31 @@ form.addEventListener("submit", async (e) => {
           body: new URLSearchParams(data),
         }
       );
+const crmUrl = new URL("https://exotica12.realeasy.in/WebCreate.aspx");
+      crmUrl.search = new URLSearchParams({
+        UID: "fourqt",
+        PWD: "wn9mxO76f34=",
+        Channel: "CTMLP",
+        Src: "CTM LP Google",
+        ISD: "91",
+        Mob: data.phone, // from form input
+        Email: data.email, // from form input
+        name: data.name, // from form input
+        City: "",
+        Location: "",
+        Project: "",
+        Remark: data.message, // from form input
+        url: "",
+        UniqueId: "0",
+        Fld1: "UTMSource",
+        Fld2: "UTMCampaign",
+        Fld3: "UTMMedium",
+      });
 
+      await fetch(crmUrl, { method: "GET", mode: "no-cors" });
       currentForm.reset();
       showPopup("✅ Form submitted successfully!");
-       grecaptcha.reset(widget3);
+      grecaptcha.reset(widget3);
     } catch (error) {
       console.error("Error!", error.message);
       showPopup("❌ Error submitting Form 1.");
@@ -2030,11 +2095,11 @@ async function handleFrm4() {
     e.preventDefault();
     const date = new Date();
     const currentForm = e.target;
-  const token = grecaptcha.getResponse(widget4);
-      if (!token) {
-        showPopup("⚠️ Please complete CAPTCHA for Form .");
-        return;
-      }
+    const token = grecaptcha.getResponse(widget4);
+    if (!token) {
+      showPopup("⚠️ Please complete CAPTCHA for Form .");
+      return;
+    }
     // ✅ Checkbox validation
     const checkboxes = currentForm.querySelectorAll(".check");
     let allChecked = true;
@@ -2084,10 +2149,31 @@ async function handleFrm4() {
           body: new URLSearchParams(data),
         }
       );
+const crmUrl = new URL("https://exotica12.realeasy.in/WebCreate.aspx");
+      crmUrl.search = new URLSearchParams({
+        UID: "fourqt",
+        PWD: "wn9mxO76f34=",
+        Channel: "CTMLP",
+        Src: "CTM LP Google",
+        ISD: "91",
+        Mob: data.phone, // from form input
+        Email: data.email, // from form input
+        name: data.name, // from form input
+        City: "",
+        Location: "",
+        Project: "",
+        Remark: data.message, // from form input
+        url: "",
+        UniqueId: "0",
+        Fld1: "UTMSource",
+        Fld2: "UTMCampaign",
+        Fld3: "UTMMedium",
+      });
 
+      await fetch(crmUrl, { method: "GET", mode: "no-cors" });
       currentForm.reset();
       showPopup("✅ Form submitted successfully!");
-       grecaptcha.reset(widget4);
+      grecaptcha.reset(widget4);
     } catch (error) {
       console.error("Error!", error.message);
       showPopup("❌ Error submitting Form 1.");
@@ -2102,32 +2188,6 @@ handleFrm1();
 handleFrm2();
 handleFrm3();
 handleFrm4();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 function showLoader(show) {
   loader.classList.toggle("hidden", !show);
